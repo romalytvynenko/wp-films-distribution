@@ -1,0 +1,44 @@
+{
+    "name": "wordpress/skeleton",
+    "description": "Composer based WordPress project skeleton.",
+    "keywords": [ "WordPress", "Skeleton", "composer", "wpackagist" ],
+    "homepage": "https://github.com/ttskch/WordPress.Skeleton",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Takashi Kanemoto",
+            "email": "kanemoto.takashi@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "johnpbloch/wordpress": "*",
+        "wpackagist-plugin/wp-i18n": "dev-trunk",
+        "wpackagist-plugin/wp-multibyte-patch": "~2.3"
+    },
+    "require-dev": {
+        "composer/composer": "~1.0@dev"
+    },
+    "extra": {
+        "wordpress-install-dir": "wp"
+    },
+    "scripts": {
+        "post-package-install": "Installer::postPackageInstall",
+        "post-package-update": "Installer::postPackageUpdate",
+        "post-install-cmd": "php bin/initializer.php"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "scripts/"
+        }
+    },
+    "config": {
+        "secure-http": false
+    }
+}

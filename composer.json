@@ -20,7 +20,8 @@
         "php": ">=5.3",
         "johnpbloch/wordpress": "*",
         "wpackagist-plugin/wp-i18n": "dev-trunk",
-        "wpackagist-plugin/wp-multibyte-patch": "~2.3"
+        "wpackagist-plugin/wp-multibyte-patch": "~2.3",
+        "wpackagist-plugin/woocommerce": "^2.6"
     },
     "require-dev": {
         "composer/composer": "~1.0@dev"
@@ -35,6 +36,7 @@
     },
     "autoload": {
         "psr-4": {
+            "App\\": "app/",
             "": "scripts/"
         }
     },

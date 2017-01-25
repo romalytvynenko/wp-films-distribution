@@ -2,8 +2,9 @@
 
 namespace App;
 
-
 use App\Modules\AddSkypeField;
+use App\Modules\FilmsProduct;
+use App\Modules\InstantPay;
 
 class Kernel
 {
@@ -15,7 +16,9 @@ class Kernel
     public function __construct()
     {
         $this->modules = [
-            new AddSkypeField()
+            new AddSkypeField(),
+            new FilmsProduct(),
+            new InstantPay()
         ];
     }
 

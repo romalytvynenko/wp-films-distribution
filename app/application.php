@@ -10,12 +10,12 @@ function fd_create_films_product_type()
         public function __construct($product)
         {
             $this->product_type = 'product_film';
-
             $this->virtual = 'yes';
-            $this->downloadable = 'yes';
-            $this->manage_stock = 'no';
 
             parent::__construct($product);
+
+            // Load all meta fields
+            $this->product_custom_fields = get_post_meta( $this->id, '', true );
         }
     }
 }

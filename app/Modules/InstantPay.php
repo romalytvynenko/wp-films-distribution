@@ -5,7 +5,6 @@ namespace App\Modules;
 
 class InstantPay extends Module
 {
-
     /**
      * Add hooks for module
      */
@@ -13,7 +12,6 @@ class InstantPay extends Module
     {
         add_filter('add_to_cart_redirect', [$this, 'redirectToCheckout']);
         add_filter('woocommerce_product_single_add_to_cart_text', [$this, 'payNowText']);
-
     }
 
     /**

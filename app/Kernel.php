@@ -5,6 +5,7 @@ namespace App;
 use App\Modules\AddSkypeField;
 use App\Modules\FilmsProduct;
 use App\Modules\InstantPay;
+use App\Modules\RegisterWorkflow;
 
 class Kernel
 {
@@ -17,6 +18,7 @@ class Kernel
     {
         $this->modules = [
             new AddSkypeField(),
+            new RegisterWorkflow(),
             new FilmsProduct(),
             new InstantPay()
         ];

@@ -11,9 +11,8 @@ class FilmsProduct extends Module
     public function init()
     {
         add_filter('product_type_selector', [$this, 'addFilmToDropdown']);
-
-        add_action( 'woocommerce_product_options_general_product_data', [&$this, 'subscription_pricing_fields'] );
-        add_action( 'admin_footer', [&$this, 'simple_subscription_custom_js'] );
+        add_action('woocommerce_product_options_general_product_data', [$this, 'filmPricingFields']);
+        add_action('admin_footer', [$this, 'filmProductJS'] );
     }
 
     /**
@@ -30,24 +29,25 @@ class FilmsProduct extends Module
     }
 
     /**
-     * If you are not having custom pices
+     * If you are not having custom prices
      */
-    public function simple_subscription_custom_js() {
+    public function filmProductJS() {
         if ( 'product' != get_post_type() ) return;
         ?><script>
             jQuery( document ).ready( function() {
-                jQuery('.options_group.pricing').addClass('show_if_subscription').show();
+                jQuery('.options_group.pricing').addClass('show_if_film').show();
                 var input_virtual = jQuery('input#_virtual');
-                input_virtual.parent().addClass('show_if_subscription').show();
+                input_virtual.parent().addClass('show_if_film').show();
                 input_virtual.prop('checked', true);
             });
         </script>
         <?php
     }
+
     /**
-     * This is to show price if not have custom prices @see WP_Product_Simple
+     * This is to show price if not have custom prices
      */
-    public function subscription_pricing_fields() {
-        echo '<div class="options_group show_if_subscription"></div>';
+    public function filmPricingFields() {
+        echo '<div class="options_group show_if_film"></div>';
     }
 }
